@@ -1,0 +1,86 @@
+name: VanishPlusPlusPlus
+version: '${version}'
+main: org.bacon.vanishPlusPlusPlus.VanishPlusPlusPlus
+api-version: '1.21'
+folia-supported: true
+authors: [ bacon ]
+description: A Folia-safe vanish plugin with deep control and optional hooks.
+softdepend: [ProtocolLib, LuckPerms, voicechat, TAB]
+loadbefore: [DiscordSRV, EssentialsDiscord]
+
+commands:
+  vanish:
+    description: Toggles your or another player's vanish state.
+    usage: /vanish [player]
+    aliases: [ v ]
+  vanishrules:
+    description: Configure personal vanish rules.
+    usage: /vanishrules [player] <rule|reset> [true|false]
+    aliases: [ vrules, vsettings ]
+  vanishchat:
+    description: Confirms sending a chat message while vanished.
+    usage: /vanishchat confirm
+    aliases: [ vchat ]
+  vanishpickup:
+    description: Toggles item pickup while vanished.
+    usage: /vanishpickup [player]
+    aliases: [ vpickup ]
+  vanishignore:
+    description: Toggles the ProtocolLib missing warning on join.
+    usage: /vanishignore
+    aliases: [ vignore ]
+  vlist:
+    description: Lists all currently vanished online players.
+    usage: /vlist
+    aliases: [ vanishlist ]
+
+permissions:
+  vanishppp.*:
+    description: Grants access to all Vanish+++ features.
+    default: op
+    children:
+      vanishppp.vanish: true
+      vanishppp.vanish.others: true
+      vanishppp.see: true
+      vanishppp.tabcompleteandmessage: true
+      vanishppp.rules: true
+      vanishppp.rules.others: true
+      vanishppp.chat: true
+      vanishppp.pickup: true
+      vanishppp.pickup.others: true
+      vanishppp.ignorewarning: true
+      vanishppp.list: true
+
+  vanishppp.vanish:
+    description: Allows a player to vanish themselves.
+    default: op
+  vanishppp.vanish.others:
+    description: Allows vanishing other players.
+    default: op
+  vanishppp.see:
+    description: Allows seeing vanished players.
+    default: op
+  vanishppp.tabcompleteandmessage:
+    description: Allows tab-completing and messaging vanished players without full see access.
+    default: op
+  vanishppp.rules:
+    description: Allows using /vanishrules.
+    default: op
+  vanishppp.rules.others:
+    description: Allows modifying rules for others.
+    default: op
+  vanishppp.chat:
+    description: Allows chatting while vanished.
+    default: op
+  vanishppp.pickup:
+    description: Allows picking up items while vanished.
+    default: op
+  vanishppp.pickup.others:
+    description: Allows toggling pickup for others.
+    default: op
+  vanishppp.ignorewarning:
+    description: Allows using /vignore.
+    default: op
+  vanishppp.list:
+    description: Allows using /vlist.
+    default: op

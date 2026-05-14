@@ -1,0 +1,102 @@
+# ----------------------------------- #
+#      Vanish+++ Configuration        #
+# ----------------------------------- #
+
+messages:
+  vanish: "&6You are now vanished."
+  unvanish: "&6You are no longer vanished."
+  no-permission: "&cYou do not have permission to use this command."
+  player-not-found: "&cPlayer not found."
+  vanished-other: "&6You have vanished %player%."
+  unvanished-other: "&6You have unvanished %player%."
+  chat-locked: "&cYou are vanished! &7Type &b/vchat confirm &7to send this message."
+  chat-sent: "&aMessage sent."
+  no-chat-pending: "&cYou have no pending chat messages to confirm."
+  pickup-enabled: "&eItem pickup is now &aENABLED&e."
+  pickup-disabled: "&eItem pickup is now &cDISABLED&e."
+  ignore-warning-enabled: "&aProtocolLib warnings disabled."
+  ignore-warning-disabled: "&eProtocolLib warnings enabled."
+
+vanish-appearance:
+  # Shown in TAB List for staff who can see vanished players.
+  tab-prefix: "&7&o[VANISHED] "
+
+  # Shown above player head (Scoreboard Team). Leave empty to hide.
+  nametag-prefix: ""
+
+  action-bar:
+    enabled: true
+    text: "&bYou are currently VANISHED"
+
+vanish-effects:
+  # Controls whether the REAL vanilla messages are blocked
+  hide-real-quit-messages: true
+  hide-real-join-messages: true
+  # Controls whether the plugin sends FAKE yellow messages on vanish/unvanish
+  broadcast-fake-messages: true
+  # Customize fake join/quit messages (%player% is replaced)
+  fake-quit-message: "&e%player% left the game"
+  fake-join-message: "&e%player% joined the game"
+
+invisibility-features:
+  silent-chests: true
+  ignore-projectiles: true
+  prevent-potion-effects: true
+  prevent-raid-trigger: true
+  prevent-sculk-sensors: true
+  hide-from-tab-complete: true
+  prevent-accidental-chat: true
+  hide-from-server-list: true
+  disable-block-triggering: true
+  disable-mob-targeting: true
+  zero-collision: true
+
+# Command aliases that should treat vanished players as offline
+# (Used to block /msg-style commands for non-staff)
+message-commands:
+  - msg
+  - w
+  - pm
+  - message
+  - tell
+
+hooks:
+  simple-voice-chat:
+    enabled: true
+    isolate-vanished-players: true
+
+heartbeat:
+  # Seconds between permission/visibility refresh cycles.
+  interval-seconds: 2
+
+warnings:
+  # Warn ops if ProtocolLib is missing (use /vignore to silence)
+  protocollib-missing: true
+
+# Default Rules for players
+# Configures what vanished players can do by default.
+# Can be overridden per-player with /vrules
+default-rules:
+  can_break_blocks: false
+  can_place_blocks: false
+  can_interact: true
+  can_hit_entities: false
+  can_pickup_items: false
+  can_drop_items: false
+  can_chat: false
+  can_trigger_world_events: false
+  can_be_targeted_by_mobs: false
+  can_open_containers_silently: true
+  can_use_visible_items: false
+  can_receive_potion_effects: false
+  broadcast_fake_messages: true
+  show_in_tablist_and_playercount: false
+  show_in_tab_complete: false
+  double_sneak_spectator: true
+  force_survival_on_unvanish: true
+  block_advancements: true
+
+# ------------------------------------------------ #
+#       Vanish+++ Internal Data - Do not edit!     #
+# ------------------------------------------------ #
+config-version: 1
